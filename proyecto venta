@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<cabeza>
+    <meta juego de caracteres="UTF-8">
+    <meta nombre="viewport" content="ancho=ancho-dispositivo, escala-inicial=1.0">
+    <título>Documento</título>
+</cabeza>
+<cuerpo>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integridad="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin=" anónimo">
+<div>
+    <método de formulario="publicación">
+        <div>
+            <div>
+                <label>Fecha Venta</label>
+                <tipo de entrada="fecha" nombre="txtFecha">
+            </div>
+            <label>Cliente:</label>
+            <seleccione nombre="cboCliente">
+                <opción valor="JUAN">JOSÉ</opción>
+                <option value="ANITA">ANITA PÉREZ</option>
+                <opción valor="LUCHO">LUIS AGUIRRE</opción>
+                <opción valor="SHIRLEY">SHIRELY</option>
+            </seleccionar>
+        </div>
+        <div>
+            <label>Producto:</label>
+            <seleccione nombre="cboProducto">
+                <option value="TALLARIN">TALLARIN SUMESA</option>
+                <option value="ATUN">ATUN LOMITOS</option>
+                <option value="ARROZ">ARROZ FLOR</option>
+                <opción valor="AZUCAR">AZUCAR</option>
+                <option value="JABON">JABON LAVATODO</option>
+
+            </seleccionar>
+        </div>
+        <div>
+            <label>Cantidad:</label>
+            <tipo de entrada="número" nombre="txtCanti">
+        </div>
+        <div>
+            <label>Precio:</label>
+            <tipo de entrada="texto" nombre="txtPrecio">
+        </div>
+        <div>
+            <botón tipo="enviar" nombre="btnCalcular"> Calculadora:</botón>
+        </div>
+    </formulario>
+</div>
+<hora>
+<h1>RESULTADO</h1>
+<?php
+si(isset($_POST['btnCalcular'])){
+    $fecha=$_POST['txtFecha'];
+    $cliente=$_POST['cboCliente'];
+    $producto=$_POST['cboProducto'];
+    $cantidad=$_POST['txtCanti'];
+    $precio=$_POST['txtPrecio'];
+    $subTotal=$cantidad*$precio;
+    $iva=$subTotal*0.12;
+    $desc=0;
+    si($subTotal<50){
+        $desc=$subTotal*0.05;
+        $regalo="NO TIENE REGALO";
+    }demás {
+        si($subTotal>=50 && $subTotal<100){
+            $desc=$subTotal*0.07;
+            $regalo="MOCHILA";
+        }demás{
+            si($subTotal>=100 && $subTotal<200){
+                $desc=$subTotal*0.1;
+                $regalo="LICUADORA";
+            }demás{
+                $desc=$subTotal*0.15;
+                $regalo="VIAJE A VENEZUELA";
+            }
+        }
+    }
+$totPagar= $subTotal + $iva - $desc;
+    //****mostrar resultados*/
+    echo "Fecha :".$fecha."<br>";
+    echo "Cliente :".$cliente."<br>";
+    echo "Producto :".$producto."<br>";
+    echo "SubTotal :".$subTotal."<br>";
+    echo "IVA 12% :".$iva."<br>";
+    echo "Descuento :".$desc."<br>";
+    echo "Total Pagar :".$totPagar."<br>";
+    echo "Regalo :".$regalo."<br>";
+
+}
+
+
+
+?>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integridad="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonym ous"> </script>
+
+</cuerpo>
+</html>
