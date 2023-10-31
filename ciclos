@@ -1,0 +1,38 @@
+<?php
+
+echo "ciclo repetitivo FOR";
+eco"<br>";
+if(isset($_POST['btnProceso'])){
+      $núm=$_POST['txtNumero'];
+      para($k=1;$k<=10;$k++){
+        $resul= $num*$k;
+        echo $num." x ".$k." = ".$resul."<br>";
+}
+}
+eco"<br>";
+
+echo"ciclo repetitivo Mientras";
+eco"<br>";
+$k=1;
+
+mientras ($k <= 10) {
+    $resul= $num*$k;
+    echo $num." x ".$k." = ".$resul."<br>";
+    $k++;
+}
+
+?>
+
+<h1>Tabla de multiplicar</h1>
+<hora>
+<div>
+    <método de formulario="publicación">
+        <label>Número de ingreso: </label>
+        <tipo de entrada="texto" nombre="txtNumero"
+        placeholder="un valor entero"
+        valor="<?php if(isset($num)) echo $num ?>">
+
+        <botón tipo="enviar" nombre="btnProceso">Proceso</botón>
+    </formulario>
+
+</div>
